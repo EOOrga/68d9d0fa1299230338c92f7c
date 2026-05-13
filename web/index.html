@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#008B83">
+  <meta name="description" content="PETERSON CHRISTOPHER is a local operations app for maintenance requests, interview scheduling, procurement requests, and patient records.">
+  <title>PETERSON CHRISTOPHER</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="favicon.png">
+  <style>
+    :root {
+      color-scheme: light;
+      --navy: #041b33;
+      --deep: #021226;
+      --teal: #008b83;
+      --cyan: #16c7d9;
+      --gold: #f5b824;
+      --surface: #f6fafb;
+      --ink: #0e2633;
+      --muted: #526a70;
+      --line: #d7e4e7;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--surface);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px clamp(18px, 5vw, 64px);
+      background: rgba(246, 250, 251, 0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: 0;
+      color: var(--navy);
+    }
+
+    .brand img {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      font-weight: 700;
+      font-size: 0.94rem;
+    }
+
+    nav a {
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    .hero {
+      display: grid;
+      min-height: min(720px, calc(100vh - 64px));
+      align-items: end;
+      background:
+        linear-gradient(90deg, rgba(2, 18, 38, 0.92), rgba(2, 18, 38, 0.54)),
+        url("featured.png") center / cover no-repeat;
+      color: white;
+    }
+
+    .hero-inner {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 76px 0 46px;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(2.8rem, 8vw, 6.8rem);
+      line-height: 0.9;
+      letter-spacing: 0;
+      font-weight: 1000;
+    }
+
+    .hero p {
+      max-width: 620px;
+      margin: 24px 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: clamp(1.05rem, 2vw, 1.28rem);
+      line-height: 1.55;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 8px;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .button.secondary {
+      background: rgba(255, 255, 255, 0.12);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+    }
+
+    main {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 46px 0 64px;
+    }
+
+    .section-title {
+      display: grid;
+      gap: 8px;
+      max-width: 720px;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      min-height: 190px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: white;
+    }
+
+    .card strong {
+      display: block;
+      margin: 16px 0 8px;
+      color: var(--navy);
+      font-size: 1.02rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .icon {
+      display: inline-grid;
+      width: 46px;
+      height: 46px;
+      place-items: center;
+      border-radius: 8px;
+      background: rgba(22, 199, 217, 0.15);
+      color: var(--teal);
+      font-weight: 1000;
+    }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      gap: 24px;
+      margin-top: 50px;
+      align-items: center;
+    }
+
+    .workflow-panel {
+      padding: 24px;
+      border-radius: 8px;
+      background: var(--navy);
+      color: white;
+    }
+
+    .workflow-panel p {
+      color: rgba(255, 255, 255, 0.78);
+      line-height: 1.6;
+    }
+
+    .steps {
+      display: grid;
+      gap: 12px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 12px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: white;
+    }
+
+    .step span {
+      display: grid;
+      width: 40px;
+      height: 40px;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 1000;
+    }
+
+    .step p {
+      margin: 3px 0 0;
+      color: var(--muted);
+      line-height: 1.48;
+    }
+
+    footer {
+      padding: 28px clamp(18px, 5vw, 64px);
+      background: var(--deep);
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    @media (max-width: 820px) {
+      nav {
+        display: none;
+      }
+
+      .grid,
+      .workflow {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 670px;
+        background-position: 56% center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <img src="favicon.png" alt="">
+      <span>PETERSON CHRISTOPHER</span>
+    </div>
+    <nav aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#privacy">Privacy</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>PETERSON CHRISTOPHER</h1>
+      <p>Operations-focused Android software for maintenance requests, interview scheduling, procurement requests, and patient record notes.</p>
+      <div class="actions">
+        <a class="button" href="#services">View the workspace</a>
+        <a class="button secondary" href="mailto:support@petersonchristopher.com">Contact support</a>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section id="services">
+      <div class="section-title">
+        <h2>Four business lanes in one local app.</h2>
+        <p>Teams can record the daily operational details that often move between paper, messages, and spreadsheets, while keeping the information on the Android device.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <span class="icon">M</span>
+          <strong>Maintenance requests</strong>
+          <p>Capture facility issues, priority, responsible contact, department, notes, and target date.</p>
+        </article>
+        <article class="card">
+          <span class="icon">I</span>
+          <strong>Interview scheduling</strong>
+          <p>Track candidate panels, room readiness, contacts, and upcoming interview tasks.</p>
+        </article>
+        <article class="card">
+          <span class="icon">P</span>
+          <strong>Procurement requests</strong>
+          <p>Record supply needs, purchasing follow-up, priority items, and status in one queue.</p>
+        </article>
+        <article class="card">
+          <span class="icon">R</span>
+          <strong>Patient records</strong>
+          <p>Keep local patient service notes for intake, updates, follow-up, and file readiness.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="workflow" id="workflow">
+      <div class="workflow-panel">
+        <h2>Built for daily operators.</h2>
+        <p>The Android app opens directly to active work, then lets staff create, review, complete, and clear local records without registration or external services.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span>1</span>
+          <div><strong>Create a record</strong><p>Select the business lane, add the responsible contact, department, date, and notes.</p></div>
+        </div>
+        <div class="step">
+          <span>2</span>
+          <div><strong>Review the queue</strong><p>See priority work first and open detail pages for each saved item.</p></div>
+        </div>
+        <div class="step">
+          <span>3</span>
+          <div><strong>Close the loop</strong><p>Mark completed tasks, update notes, or clear local records from settings.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="privacy" style="margin-top:50px">
+      <div class="section-title">
+        <h2>Private by default.</h2>
+        <p>PETERSON CHRISTOPHER does not require an account, does not use analytics, and does not upload records. Saved information remains in local Android app storage until the user clears app data or uninstalls the app.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>PETERSON CHRISTOPHER</strong><br>
+    Support: support@petersonchristopher.com
+  </footer>
+</body>
+</html>
