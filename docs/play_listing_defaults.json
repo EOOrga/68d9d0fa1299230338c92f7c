@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "applications": {
+    "com.tazi.ggg.peterson_christopher_ops": {
+      "title": "PETERSON CHRISTOPHER",
+      "short_description": "Manage daily maintenance, interview, procurement, and patient record tasks...",
+      "full_description": "PETERSON CHRISTOPHER helps operations teams keep essential business tasks organized on one Android device. Create maintenance requests, schedule interview tasks, track procurement needs, and record patient service notes with status, priority, contact, department, target date, and notes.\n\nThe app is built for quick daily review: open the dashboard, scan active work, filter the operations queue, inspect details, mark records complete, and manage local data from settings. Records are stored locally on the device with no account registration, analytics, cloud sync, or external APIs.",
+      "source_screenshots": [
+        "docs/screens/1.png",
+        "docs/screens/2.png",
+        "docs/screens/3.png"
+      ],
+      "generated_from": "existing repository listing metadata and README",
+      "generated_at": "2026-10-02T21:26:11.859197+00:00"
+    }
+  }
+}
