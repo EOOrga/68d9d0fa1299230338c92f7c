@@ -518,7 +518,7 @@ class DashboardScreen extends StatelessWidget {
         _HeroPanel(onShowRequests: onShowRequests),
         const SizedBox(height: 16),
         _SectionHeader(
-          title: 'Today at a glance',
+          title: 'PETERSON CHRISTOPHER',
           actionLabel: 'View all',
           onPressed: onShowRequests,
         ),
