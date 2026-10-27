@@ -29,7 +29,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.tazi.ggg.peterson_christopher_ops"
+        applicationId = "com.o.peterson_christopher_o"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
