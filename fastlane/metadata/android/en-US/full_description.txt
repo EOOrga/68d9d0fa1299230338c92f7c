@@ -1,0 +1,3 @@
+PETERSON CHRISTOPHER helps operations teams keep essential business tasks organized on one Android device. Create maintenance requests, schedule interview tasks, track procurement needs, and record patient service notes with status, priority, contact, department, target date, and notes.
+
+The app is built for quick daily review: open the dashboard, scan active work, filter the operations queue, inspect details, mark records complete, and manage local data from settings. Records are stored locally on the device with no account registration, analytics, cloud sync, or external APIs.
